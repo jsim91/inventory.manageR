@@ -14,8 +14,8 @@
 #' [1] "current inventory 11Nov2020.csv"
 #' @export
 inventory_update <- function(inventoryFile, removalRecord, removeVials = TRUE, columnName = "barcode", writeToFile = TRUE){
-  inventory.file <- read.csv(inventoryFile)
-  removal.file <- read.csv(removalRecord)
+  inventory.file <- read.csv(inventoryFile,stringsAsFactors=FALSE,check.names=F)
+  removal.file <- read.csv(removalRecord,stringsAsFactors=FALSE,check.names=F)
   if(regexpr(pattern="\\.csv$",inventoryFile)==-1){
     stop("incorrect inventory file filetype; must be .csv format")
   }
